@@ -1,0 +1,87 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Event API",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/user/preferences": {
+      "post": {
+        "summary": "Set User Preferences",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "userId": {
+                    "type": "string"
+                  },
+                  "preferenceId": {
+                    "type": "integer"
+                  },
+                  "platformId": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "userId",
+                  "preferenceId",
+                  "platformId"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Preferences Set Successfully"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/match/events": {
+      "post": {
+        "summary": "Create a new match event",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "matchId": {
+                    "type": "integer"
+                  },
+                  "eventTitle": {
+                    "type": "string"
+                  },
+                  "eventDescription": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "matchId",
+                  "eventTitle",
+                  "eventDescription"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Event Created Successfully"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    }
+  }
+}
